@@ -55,7 +55,7 @@ public class IPPubblico {
         // Se il primo numero è 10, allora l'indirizzo IP è privato
         if(primoNumero == 10)
             return Response.status(Status.OK)
-                    .entity(new IPPubblicoInfo(false))
+                    .entity(new IPPubblicoInfo(ip,"privato"))
                     .type(MediaType.APPLICATION_JSON)
                     .build();
 
@@ -63,7 +63,7 @@ public class IPPubblico {
         // 16 e 31, allora l'indirizzo IP è privato
         if(primoNumero == 172 && secondoNumero >= 16 && secondoNumero <= 31)
             return Response.status(Status.OK)
-                    .entity(new IPPubblicoInfo(false))
+                    .entity(new IPPubblicoInfo(ip,"privato"))
                     .type(MediaType.APPLICATION_JSON)
                     .build();
 
@@ -71,13 +71,13 @@ public class IPPubblico {
         // l'indirizzo IP è privato
         if(primoNumero == 192 && secondoNumero == 168)
             return Response.status(Status.OK)
-                    .entity(new IPPubblicoInfo(false))
+                    .entity(new IPPubblicoInfo(ip,"privato"))
                     .type(MediaType.APPLICATION_JSON)
                     .build();
 
         // Altrimenti, l'indirizzo IP è privato
         return Response.status(Status.OK)
-                .entity(new IPPubblicoInfo(true))
+                .entity(new IPPubblicoInfo(ip,"pubblico"))
                 .type(MediaType.APPLICATION_JSON)
                 .build();
 

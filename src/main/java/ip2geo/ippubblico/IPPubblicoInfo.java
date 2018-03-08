@@ -4,18 +4,25 @@ import com.fasterxml.jackson.annotation.JsonProperty;
 
 public class IPPubblicoInfo {
     
-    private boolean pubblico;
+    private String ip;
+    private String tipologia;
     
     public IPPubblicoInfo() { 
         // Ci pensa Jackson
     }
     
-    public IPPubblicoInfo(boolean pubblico) {
-        this.pubblico = pubblico;
+    public IPPubblicoInfo(String ip, String tipologia) {
+        this.ip = ip;
+        this.tipologia = tipologia;
     }
     
     @JsonProperty
-    public boolean getPubblico() {
-        return pubblico;
+    public String getIp() {
+        return tipologia;
+    }
+    
+    @JsonProperty
+    public String getTipologia() {
+        return tipologia;
     }
 }
